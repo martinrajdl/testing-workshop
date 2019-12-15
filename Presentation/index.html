@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+		/>
+
+		<title>Testing workshop</title>
+
+		<link rel="stylesheet" href="css/reset.css" />
+		<link rel="stylesheet" href="css/reveal.css" />
+		<link rel="stylesheet" href="css/theme/night.css" />
+		<link rel="stylesheet" href="lib/css/monokai.css" />
+		<style>
+			section ul li {
+				line-height: 1.7;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section>
+					<h1>Testing workshop</h1>
+				</section>
+
+				<section>
+					<section><h4>What will we learn?</h4></section>
+					<section>
+						<ul>
+							<li>Why should we care about writing tests ?</li>
+							<li>What kind of tests are there ?</li>
+							<li>Which ones and how many should I write ?</li>
+							<li>What tools do I need to write tests ?</li>
+							<li>What are good tests?</li>
+						</ul>
+					</section>
+					<section>
+						<ul>
+							<li>How do I start writing tests ?</li>
+						</ul>
+					</section>
+					<section>
+						<img src="./img/cat.gif" alt="" />
+					</section>
+				</section>
+
+				<!-- test is some code that runs, and tells whether or not your application behaves as expected -->
+
+				<section>
+					<section><h4>Why should I write tests?</h4></section>
+					<!-- When i look back at code ive written 6 months ago I internally scream in terror-->
+					<section><h5>Development is a complex process</h5></section>
+					<!-- 
+					Is is also a process of discovery, answering unknowns, finding out how things work, also
+				
+					-->
+					<section>
+						<h5>
+							And it's really hard to get things right, on the
+							first try
+						</h5>
+					</section>
+					<!-- finding out new possibilities for implmentation and feature
+					and product requirements, that change in time -->
+					<section>
+						<h5>
+							You do something, then you do it better, then you do
+							it better again
+						</h5>
+					</section>
+					<!-- There are a feew people that benefit from you writing tests -->
+					<section>
+						<ul>
+							<li>Test automation, fewer bugs, happier users</li>
+							<li>
+								You make new things faster, happier project
+								manager, stakeholder
+							</li>
+							<li>Documenting code, happier colleagues</li>
+
+							<!-- 
+							Very practical usecase, we work at a large company, many people come in and need to work on your code without your input
+							also product and code changes constantly, and even further, not every code is well and easily testable, so writing tests, 
+							forces us write more granular, understandable and composable code that can be taken apart and tested
+							-->
+
+							<!-- you are never done, unless it's the project you started two weeks ago and will never finish -->
+
+							<li>Code refactoring, happier you</li>
+						</ul>
+					</section>
+					<section>
+						<h5>
+							Tests help you iterate, refactor, write better code
+						</h5>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h4>Which ones and how many should I write ?</h4>
+					</section>
+					<section>
+						<h5>Unit tests</h5>
+						<!-- Unit is a small piece of code with dedicated and expected functionality that has some ouput -->
+						<!-- uni tests are really small, easy to write, and easy to run, you can run them all the time -->
+						<!-- they force us write things that are easily testable - small granular code, that can be put into test, without too many direct dependencies -->
+						<!-- ENFORCE GOOD PRACTICES -->
+					</section>
+					<section>
+						<h5>Integration tests</h5>
+						<!-- 
+						A little bit like bigger unit tests, they test that some things work together as expected, either multiple application layers
+						multiple components, multiple functionalities
+						they require a little more setup and are a little harder to write, but they also provide more context
+						-->
+					</section>
+					<section>
+						<h5>End to End (E2E) tests</h5>
+						<!-- 
+							Require a lot of resources, are really hard to setup and much harder to write, also give the most confidence, that things actually work
+							real world test
+						 -->
+					</section>
+					<section>
+						<h6>
+							snapshot, visual regression, functional
+						</h6>
+					</section>
+					<section>
+						<h6>
+							What is black-box and white-box testing ?
+						</h6>
+					</section>
+					<section>
+						<img src="./img/pyramid.png" alt="" />
+					</section>
+					<section>
+						<img src="./img/trophy.jpg" alt="" />
+					</section>
+					<section>
+						<img src="./img/gif.gif" alt="" />
+					</section>
+				</section>
+				<section>
+					<section><h4>What are good tests?</h4></section>
+					<!-- you can definitely take multiple aspects to what makes tests good, but according to our previous definition on why you should be writing them and how they are beneficial
+					you can also thing, at to what degree are they beneficial to these people -->
+					<section><h6>Help refactoring</h6></section>
+					<!-- tests that ask good questions -->
+
+					<!-- tests that test functionality - end result, output, that things work - not how they work, they don't test implementation, how somehting behaves
+						also, if tests test implementation and how something works, instead of what it does, they will break when you refactor, which will slow down your work
+					-->
+
+					<!-- example here is that, if you HAVE A machine thats tests an animal to see if it is a dog, 
+						and your deciding factor is that it has a tail, teeth and makes noises, 
+						and if it doesnt fit these criteria, alarm goes of
+						if you are asking a bad questions
+						if you give it a dinosaur, and it passes it as a dog, you didn't write a very good test
+						
+
+					-->
+
+					<section><h6>Give you confidence</h6></section>
+
+					<!--tests that meaningfull, they test things that matter for the user to work, 
+						and they test it to reasonable depth,
+						look for edgecases and branches in logic-->
+
+					<!-- tests that give us confidence, that no matter what changes we did, things are not ending up in flames -->
+
+					<section>Coverage?</section>
+					<!-- 
+							test coverage says how much in % of your code is tested, and it's not a metric you need to live to by
+							
+						-->
+					<!-- TODO drawing -->
+				</section>
+
+				<section>
+					<section>
+						<h4>Test tools</h4>
+					</section>
+					<section>
+						<ul>
+							<li><b>Launchers</b> - Karma, Jest</li>
+							<!-- Test launchers are given a list of tests, and the various configuration and scaffolding necessary 
+							to run those tests (what browsers to run in, what babel plugins to use, how to format output, etc). -->
+
+							<li><b>Structure</b> - Mocha, Jest</li>
+							<!-- Testing structure refers to the organization of your tests. Nowadays,  -->
+							<!-- describe, it, good for documentation -->
+							<li>
+								<b>Assertion functions</b> - Chai, Jest
+								<!-- They provide the function that compare what you expect and what you actually get 
+								expect(something).toBe(something similar)
+								-->
+								<!-- Assertion functions are used to make sure that tested variables contain the expected value. 
+								-->
+							</li>
+							<li><b>Mocks</b> spies and stubs - Sinon, Jest</li>
+						</ul>
+					</section>
+					<section>
+						<ul>
+							<li>
+								Helper libraries / enzyme, react-testing-library
+								(working with DOM)
+							</li>
+							<li>Code coverage</li>
+							<li>
+								Browser - puppeteer (NEAT), Cypress.io
+							</li>
+							<li>Visual Regression Tools</li>
+							<li>Snapshots</li>
+						</ul>
+					</section>
+				</section>
+
+				<!-- LINKS -->
+				<section>
+					<section>
+						<h3>useful links</h3>
+						<ul>
+							<li>
+								<a
+									target="_blank"
+									href="https://devhints.io/enzyme"
+								>
+									Enzyme Cheat Sheet
+								</a>
+							</li>
+							<li>
+								<a
+									target="_blank"
+									href="https://devhints.io/jest"
+								>
+									Jest Cheat Sheet
+								</a>
+							</li>
+						</ul>
+					</section>
+				</section>
+				<section>
+						<section>
+							<h3>Hands on!</h3>
+							<img src="./img/cat.gif" alt="" />
+						</section>
+					</section>
+
+					<section>
+						<h3>further reading</h3>
+						<ul>
+							<li>
+								<a
+									target="_blank"
+									href="https://airbnb.io/enzyme/docs/api/"
+								>
+									Full Enzyme Api reference
+								</a>
+							</li>
+							<li>
+								<a
+									target="_blank"
+									href="https://www.youtube.com/watch?v=xjP3Ll1UhEw&t=190s"
+								>
+								Alex Lobera - principles in testing
+								</a>
+							</li>
+							<li>
+								<a
+									target="_blank"
+									href="https://medium.com/welldone-software/an-overview-of-javascript-testing-in-2019-264e19514d0a"
+								>
+									Overview of javascript testing in 2019
+								</a>
+							</li>
+							<li>
+								<a
+									target="_blank"
+									href="http://softwaretestingfundamentals.com/unit-testing/"
+								>
+									Fundamentals of unit testing
+								</a>
+							</li>
+							<li>
+								<a
+									target="_blank"
+									href="https://medium.com/@rossbulat/test-driven-development-in-react-with-jest-and-enzyme-2a6cf2cc3071"
+								>
+									About TDD by @rossbulat
+								</a>
+							</li>
+							<li>
+								<a
+									target="_blank"
+									href="https://medium.com/swlh/learning-to-love-tdd-f8eb60739a69"
+								>
+									TDD Cycle
+								</a>
+							</li>
+						</ul>
+					</section>
+				</section>
+			</div>
+		</div>
+
+		<script src="js/reveal.js"></script>
+
+		<script>
+			Reveal.initialize({});
+		</script>
+	</body>
+</html>
