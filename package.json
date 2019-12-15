@@ -1,0 +1,56 @@
+{
+  "name": "pipedrive-unit-testing-workshop",
+  "version": "1.0.0",
+  "description": "",
+  "main": "webpack.config.js",
+  "dependencies": {
+    "@babel/polyfill": "^7.4.4",
+    "core-js": "^3.3.2",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.4.5",
+    "@babel/plugin-proposal-class-properties": "^7.5.0",
+    "@babel/preset-env": "^7.5.4",
+    "@babel/preset-react": "^7.0.0",
+    "babel-loader": "8.0.6",
+    "enzyme": "^3.10.0",
+    "enzyme-adapter-react-16": "^1.14.0",
+    "enzyme-to-json": "^3.3.5",
+    "jest": "^24.8.0",
+    "jest-cli": "^24.8.0",
+    "prettier": "^1.18.2",
+    "react-test-renderer": "^16.8.6",
+    "webpack": "^4.35.2",
+    "webpack-cli": "^3.3.5",
+    "webpack-dev-server": "^3.7.2"
+  },
+  "scripts": {
+    "test": "./node_modules/.bin/jest",
+    
+    "test:e:1": "npm run test -- Examples/1-Introduction/filter.test.js",
+    "test:e:2": "npm run test -- Examples/2-Component/Component.test.jsx",
+    "test:e:3": "npm run test -- Examples/3-Lifecycle/Input.test.jsx",
+    "test:e:4": "npm run test -- Examples/4-Mocking/Mocking.test.jsx",
+    "test:e:5": "npm run test -- Examples/5-Coverage/Coverage.test.js",
+    "test:e:all": "npm run test -- ./Examples",
+    "test:1": "npm run test -- Workshop/1-function/numbers.test.js",
+    "test:2": "npm run test -- Workshop/2-RenderingComponents/Component.test.jsx",
+    "test:3": "npm run test -- Workshop/3-LifecycleMethods/Likes.test.jsx",
+    "test:all": "npm run test -- ./Workshop",
+    "coverage": "./node_modules/.bin/jest --coverage --collectCoverageFrom=Introductory/Examples/5-Coverage/**/*.js",
+    "format": "prettier --write '**/*.{js,json,jsx,pcss,yml,ts,tsx}'"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "jest": {
+    "snapshotSerializers": [
+      "enzyme-to-json/serializer"
+    ],
+    "setupFiles": [
+      "./setupTests.js"
+    ]
+  }
+}
